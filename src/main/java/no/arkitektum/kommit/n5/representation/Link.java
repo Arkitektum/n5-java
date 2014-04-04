@@ -6,9 +6,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Link {
 	public String rel;
 	public String uri;
+	public String title;
 	
-	public Link(String rel, String uri) {
+	public Link(String rel, String uri, String title) {
 		this.rel = rel;
 		this.uri = uri;
+		this.title = title;
 	}
 }

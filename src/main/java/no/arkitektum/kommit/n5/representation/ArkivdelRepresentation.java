@@ -19,9 +19,9 @@ public class ArkivdelRepresentation extends Representation {
 		super(baseUri);
 		this.systemID = arkivdel.systemID;
 		this.tittel = arkivdel.tittel;
-		addLink(SELF_REL_VALUE, pathToSelf());
-		addLink("mapper", pathToSelf() + "/mapper");
-		addLink("arkiv", new ArkivRepresentation(baseUri, arkivdel.arkiv).pathToSelf());
+		addLink(SELF_REL_VALUE, pathToSelf(),"");
+		addLink("mapper", pathToSelf() + "/mapper", "Vis mapper");
+		addLink("arkiv", new ArkivRepresentation(baseUri, arkivdel.arkiv).pathToSelf(), "Vis arkiv");
 	}
 
 	public static List<ArkivdelRepresentation> createFromList(String baseUri, List<Arkivdel> arkivdeler) {

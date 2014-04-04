@@ -23,8 +23,8 @@ public abstract class Representation {
 		this.baseUri = baseUri;
 	}
 	
-	protected void addLink(String relation, String path) {
-		links.add(new Link(relation, baseUri + path));
+	protected void addLink(String relation, String path, String title) {
+		links.add(new Link(relation, baseUri + path,title));
 	}
 	
 	public abstract String pathToSelf();

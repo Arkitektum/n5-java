@@ -15,14 +15,21 @@ public class MappeRepresentation extends Representation {
 	public String systemID;
 	public String mappeID;
     public String tittel;
+    public String status;
     
 	public MappeRepresentation(String baseUri, Mappe mappe) {
 		super(baseUri);
 		systemID = mappe.systemID;
 		mappeID = mappe.mappeID;
 		tittel = mappe.tittel;
-		addLink(Representation.SELF_REL_VALUE, pathToSelf());
-		addLink("registreringer", pathToSelf() + "/registreringer");
+		status = mappe.status;
+		addLink(Representation.SELF_REL_VALUE, pathToSelf(), "");
+		addLink("http://rel.kommit.no/noark5/v4/registreringer", pathToSelf() + "/registreringer", "Vis registreringer");
+		addLink("edit", pathToSelf(), "Endre mappe");
+		if (status != "Avsluttet")
+		addLink("http://rel.kommit.no/noark5/v4/avsluttmappe", pathToSelf()+ "/avsluttmappe", "Avslutt mappe");
+		if (status == "Avsluttet") //og nødvendige rettigheter
+			addLink("http://rel.kommit.no/noark5/v4/aapnemappe", pathToSelf()+ "/aapnemappe", "Åpne mappe");
 	}
 
 	@Override

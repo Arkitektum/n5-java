@@ -38,10 +38,13 @@ public class ArkivService {
 	
 	private void addTestData() {
 		List<Mappe> listeMedMapper = new ArrayList<Mappe>();
-		Mappe mappe = new Mappe("1003", "Mappe 42", "Den store mappa", new ArrayList<Registrering>());
+		Mappe mappe = new Mappe("1003", "Mappe 42", "Den store mappa", "Reservert", new ArrayList<Registrering>());
 		listeMedMapper.add(mappe);
+		Mappe mappe2 = new Mappe("1004", "Mappe 44", "Den store mappa2", "Avsluttet", new ArrayList<Registrering>());
+		listeMedMapper.add(mappe2);
 		
 		mapper.put("1003", mappe);
+		mapper.put("1004", mappe2);
 		
 		List<Arkivdel> arkivdel = new ArrayList<Arkivdel>();
 		Arkivdel arkivdel1 = new Arkivdel("1002", "Arkivdel 1", listeMedMapper);

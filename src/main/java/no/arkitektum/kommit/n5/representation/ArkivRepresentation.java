@@ -24,8 +24,8 @@ public class ArkivRepresentation extends Representation {
 		systemID = arkiv.systemID;
 		tittel = arkiv.tittel;
 		beskrivelse = arkiv.beskrivelse;
-		addLink(Representation.SELF_REL_VALUE, pathToSelf());
-		addLink("arkivdeler", pathToSelf() + "/arkivdeler");
+		addLink(Representation.SELF_REL_VALUE, pathToSelf(), "");
+		addLink("arkivdeler", pathToSelf() + "/arkivdeler", "Vis arkivdeler");
 	}
 
 	public static List<ArkivRepresentation> createFromList(String baseUri, List<Arkiv> all) {
